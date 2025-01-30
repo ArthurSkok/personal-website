@@ -1,0 +1,44 @@
+.carousel-container {
+    --carousel-item-height: 2rem; /* Adjust this as needed */
+    top:15rem;
+    position: relative;
+    overflow: hidden; /* Hide overflow to show only one item at a time */
+    width: 100%;
+    height: var(--carousel-item-height);
+  }
+  
+  .carousel-content {
+    display: flex;
+    flex-direction: column; /* Change direction to column for vertical scroll */
+    transition: transform 0.75s ease-in-out;
+    overflow: visible;
+  }
+  
+  .carousel-item {
+    height: var(--carousel-item-height); /* Set a fixed height to match the container */
+    width: 100%; /* Ensures full width */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Center the content within the item */
+  }
+  
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .carousel-button.prev {
+    left: 10px;
+  }
+  
+  .carousel-button.next {
+    right: 10px;
+  }
