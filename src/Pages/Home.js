@@ -7,31 +7,6 @@ import "./Home.css";
 import "../Fonts/fonts.css";
 import ScrollListSkills from "./WheelList.js";
 import LogoNew from "../Assets/logonew.png";
-//index set equal to next index (x % y = y unless x = y, makes code optimized rather than, checking for equal, if not stay the same)
-
-/*const Carousel = ({ items }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const prevItem = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? items.length - 1 : prevIndex - 1
-    );
-  };
-
-  const nextItem = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === items.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  return (
-    <div className="carousel">
-      <button onClick={prevItem}>&lt;</button>
-      <div className="carousel-item">{items[currentIndex]}</div>
-      <button onClick={nextItem}>&gt;</button>
-    </div>
-  );<Carousel items={items} />
-};*/
 
 const Header = () => {
   const items = ["Item 1", "Item 2", "Item 3", "Item 4"];
@@ -60,13 +35,13 @@ const Header = () => {
         <div style={{ backgroundColor: "red" }}>Python</div>
         <div style={{ backgroundColor: "orange" }}>AWS</div>
       </ScrollListSkills>
-      <div style={{ height: "200vh", padding: "20px" }}>
-        <h1>Scroll Position: {scrollPosition}px</h1>
-      </div>
     </>
   );
 };
-
+/*<div style={{ height: "200vh", padding: "20px" }}>
+        <h1>Scroll Position: {scrollPosition}px</h1>
+      </div>
+    */
 function Home() {
   return (
     <div className="Home">

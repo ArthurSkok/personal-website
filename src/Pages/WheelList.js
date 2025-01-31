@@ -12,6 +12,7 @@ const ScrollListSkills = ({ children }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [containerHeight, setContainerHeight] = useState(0);
   const containerRef = useRef(null);
+  const autoIncrementRef = useRef(null);
   //index set equal to next index (x % y = y unless x = y, makes code optimized rather than, checking for equal, if not stay the same)
 
   const goToNext = () => {
@@ -26,21 +27,28 @@ const ScrollListSkills = ({ children }) => {
 
   const handleWheel = (e) => {
     e.preventDefault();
+    clearInterval(autoIncrementRef.current);
     if (e.deltaY > 0) {
       goToNext();
     } else {
       goToPrev();
     }
+    autoIncrementRef.current = setTimeout(startAutoIncrement, 5000);
   };
-
+  const startAutoIncrement = () => {
+    autoIncrementRef.current = setInterval(goToNext, 1000); // Adjust the interval as needed
+  };
   useEffect(() => {
+    startAutoIncrement();
     const container = containerRef.current;
+    //const autoIncrement = setInterval(goToNext, 1000); // original implementation of the timer
     container.addEventListener("wheel", handleWheel);
     if (container) {
       setContainerHeight(container.clientHeight);
     }
 
     return () => {
+      clearInterval(autoIncrementRef.current);
       container.removeEventListener("wheel", handleWheel);
     };
   }, []);
