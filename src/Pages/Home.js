@@ -7,6 +7,8 @@ import "./Home.css";
 import "../Fonts/fonts.css";
 import ScrollListSkills from "./WheelList.js";
 import LogoNew from "../Assets/logonew.png";
+import { BsFiletypeCss } from "react-icons/bs";
+import background from "../Assets/background2.jpg";
 
 const Header = () => {
   const items = ["Item 1", "Item 2", "Item 3", "Item 4"];
@@ -25,16 +27,20 @@ const Header = () => {
     <>
       <div className="Header">
         <img src={LogoNew} alt="Example" className="Header-Picture" />
+        <ScrollListSkills>
+          <div style={{ backgroundColor: "lightcoral" }}>
+            React <img src={logo} className="App-logo" alt="logo" />
+          </div>
+          <div style={{ backgroundColor: "lightblue" }}>
+            CSS <BsFiletypeCss />
+          </div>
+          <div style={{ backgroundColor: "lightgreen" }}>HTML</div>
+          <div style={{ backgroundColor: "red" }}>Python</div>
+          <div style={{ backgroundColor: "orange" }}>AWS</div>
+        </ScrollListSkills>
         Full Stack Software Developer
         <div className="Header-Side">My name is Arthur Skok!</div>
       </div>
-      <ScrollListSkills>
-        <div style={{ backgroundColor: "lightcoral" }}>React</div>
-        <div style={{ backgroundColor: "lightblue" }}>CSS</div>
-        <div style={{ backgroundColor: "lightgreen" }}>HTML</div>
-        <div style={{ backgroundColor: "red" }}>Python</div>
-        <div style={{ backgroundColor: "orange" }}>AWS</div>
-      </ScrollListSkills>
     </>
   );
 };
@@ -44,7 +50,7 @@ const Header = () => {
     */
 function Home() {
   return (
-    <div className="Home">
+    <div className="Home" style={{ backgroundImage: `url(${background})` }}>
       <NavBar />
       <Header />
       <header className="header">

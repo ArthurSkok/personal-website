@@ -30,3 +30,10 @@
     align-items: center;
     gap: 5rem;
   }
+  .a {
+    color: white;
+    
+  }
+  a:visited {
+    color: white;
+  }

@@ -12,7 +12,7 @@ import LogoNew from "../Assets/logonew.png";
 
 const NavBar = ({ fontFam }) => {
   return (
-    <nav className="navbar" font-family="Empire">
+    <nav className="navbar">
       <div className="navbar-logo">
         <img src={LogoNew} alt="Example" className="navbar-logo-pic" />
         Arthur Skok

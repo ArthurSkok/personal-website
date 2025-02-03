@@ -1,15 +1,16 @@
+
 .Header {
     display: flex;
     flex-direction: row;
     gap: 1rem;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
     padding: 2rem;
     padding-top: 10rem;
+   
   }
   .Header-Side {
-    background-color: #333;
+    
     color: white;
     font-size: 5rem;
   }

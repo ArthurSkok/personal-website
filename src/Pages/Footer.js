@@ -7,9 +7,15 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-socials">
-        <BsGithub />
-        <BsFacebook />
-        <BsLinkedin />
+        <a href="https://github.com/ArthurSkok">
+          <BsGithub />
+        </a>
+        <a href="https://www.facebook.com/arthur.sneeze/">
+          <BsFacebook />
+        </a>
+        <a href="https://www.linkedin.com/in/arthur-skok/">
+          <BsLinkedin />
+        </a>
       </div>
       <div className="footer-logo">
         <BsCCircle className="footer-icon" />

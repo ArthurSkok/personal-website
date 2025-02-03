@@ -24,7 +24,10 @@ const ScrollListSkills = ({ children }) => {
       (prevIndex) => (prevIndex - 1 + children.length) % children.length
     );
   };
-
+  const pauseAutoIncrement = () => {
+    clearInterval(autoIncrementRef.current);
+    autoIncrementRef.current = setTimeout(startAutoIncrement, 5000); // restarting the timer
+  };
   const handleWheel = (e) => {
     e.preventDefault();
     clearInterval(autoIncrementRef.current);
@@ -36,7 +39,17 @@ const ScrollListSkills = ({ children }) => {
     autoIncrementRef.current = setTimeout(startAutoIncrement, 5000);
   };
   const startAutoIncrement = () => {
-    autoIncrementRef.current = setInterval(goToNext, 1000); // Adjust the interval as needed
+    autoIncrementRef.current = setInterval(goToNext, 1000);
+  };
+  const handleNextClick = () => {
+    pauseAutoIncrement();
+    goToNext();
+  };
+
+  // Handle button click to go to the previous slide and pause auto increment
+  const handlePrevClick = () => {
+    pauseAutoIncrement();
+    goToPrev();
   };
   useEffect(() => {
     startAutoIncrement();
@@ -67,10 +80,10 @@ const ScrollListSkills = ({ children }) => {
           </div>
         ))}
       </div>
-      <button onClick={goToPrev} className="carousel-button prev">
+      <button onClick={handlePrevClick} className="carousel-button prev">
         Prev
       </button>
-      <button onClick={goToNext} className="carousel-button next">
+      <button onClick={handleNextClick} className="carousel-button next">
         Next
       </button>
     </div>
