@@ -8,6 +8,7 @@ import "../Fonts/fonts.css";
 import ScrollListSkills from "./WheelList.js";
 import LogoNew from "../Assets/logonew.png";
 import { BsFiletypeCss } from "react-icons/bs";
+import { AiOutlinePython } from "react-icons/ai";
 import background from "../Assets/slide.png";
 
 const Header = () => {
@@ -34,7 +35,9 @@ const Header = () => {
             CSS <BsFiletypeCss />
           </div>
           <div>HTML</div>
-          <div>Python</div>
+          <div>
+            Python <AiOutlinePython />
+          </div>
           <div>AWS</div>
         </ScrollListSkills>
         <div className="Header-Side">

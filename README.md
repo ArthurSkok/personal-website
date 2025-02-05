@@ -68,4 +68,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-"# personal-website" 
+"# personal-website"
+
+## License
+
+This project uses icons from [React Icons](https://react-icons.github.io/react-icons/) licensed under the MIT License. See the [LICENSE](./LICENSE) file for more details.
