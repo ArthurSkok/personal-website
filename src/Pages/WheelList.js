@@ -7,6 +7,7 @@ import "./Home.css";
 import "../Fonts/fonts.css";
 import "./WheelList.css";
 import LogoNew from "../Assets/logonew.png";
+import { BsArrowUpCircle, BsArrowDownCircle } from "react-icons/bs";
 
 const ScrollListSkills = ({ children }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -67,24 +68,26 @@ const ScrollListSkills = ({ children }) => {
   }, []);
 
   return (
-    <div ref={containerRef} className="carousel-container">
-      <div
-        className="carousel-content"
-        style={{
-          transform: `translateY(-${currentIndex * containerHeight}px)`,
-        }}
-      >
-        {children.map((child, index) => (
-          <div key={index} className="carousel-item">
-            {child}
-          </div>
-        ))}
-      </div>
+    <div>
       <button onClick={handlePrevClick} className="carousel-button prev">
-        Prev
+        <BsArrowUpCircle />
       </button>
+      <div ref={containerRef} className="carousel-container">
+        <div
+          className="carousel-content"
+          style={{
+            transform: `translateY(-${currentIndex * containerHeight}px)`,
+          }}
+        >
+          {children.map((child, index) => (
+            <div key={index} className="carousel-item">
+              {child}
+            </div>
+          ))}
+        </div>
+      </div>
       <button onClick={handleNextClick} className="carousel-button next">
-        Next
+        <BsArrowDownCircle />
       </button>
     </div>
   );

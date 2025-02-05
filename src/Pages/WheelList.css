@@ -5,7 +5,7 @@
     width: 15rem;
     height: var(--carousel-item-height);
     border-radius: 0.75rem;
-    border-color: white;
+  
   }
   
   .carousel-content {
@@ -21,28 +21,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center; 
-    background-color: black;
+    text-align: center;
     color:white;
+    font-style:bold;
   }
   
   .carousel-button {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    color:white;
+    font-style: italic;
+    
     border: none;
     cursor: pointer;
-    background-color: none;
+    background-color: transparent;
   }
   
   .carousel-button.prev {
-    position: absolute;
-    left: 10px;
+    position: relative;
+    top: 1rem;
   }
   
   .carousel-button.next {
-    position: absolute;
-    right: 10px;
+    position: relative;
+    bottom:1rem;
+    
   }
 
   

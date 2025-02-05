@@ -37,7 +37,9 @@ const Header = () => {
           <div>Python</div>
           <div>AWS</div>
         </ScrollListSkills>
-        <div className="Header-Side">Greetings, my name is Arthur Skok!</div>
+        <div className="Header-Side">
+          Arthur Skok: NYC Based Application and Web Developer
+        </div>
       </div>
     </>
   );
