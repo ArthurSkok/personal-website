@@ -39,7 +39,7 @@ const ScrollListSkills = ({ children }) => {
     autoIncrementRef.current = setTimeout(startAutoIncrement, 5000);
   };
   const startAutoIncrement = () => {
-    autoIncrementRef.current = setInterval(goToNext, 1000);
+    autoIncrementRef.current = setInterval(goToNext, 3000);
   };
   const handleNextClick = () => {
     pauseAutoIncrement();

@@ -8,7 +8,7 @@ import "../Fonts/fonts.css";
 import ScrollListSkills from "./WheelList.js";
 import LogoNew from "../Assets/logonew.png";
 import { BsFiletypeCss } from "react-icons/bs";
-import background from "../Assets/aura.jpg";
+import background from "../Assets/slide.png";
 
 const Header = () => {
   const items = ["Item 1", "Item 2", "Item 3", "Item 4"];
@@ -27,18 +27,17 @@ const Header = () => {
     <>
       <div className="Header">
         <ScrollListSkills>
-          <div style={{ backgroundColor: "lightcoral" }}>
+          <div>
             React <img src={logo} className="App-logo" alt="logo" />
           </div>
-          <div style={{ backgroundColor: "lightblue" }}>
+          <div>
             CSS <BsFiletypeCss />
           </div>
-          <div style={{ backgroundColor: "lightgreen" }}>HTML</div>
-          <div style={{ backgroundColor: "red" }}>Python</div>
-          <div style={{ backgroundColor: "orange" }}>AWS</div>
+          <div>HTML</div>
+          <div>Python</div>
+          <div>AWS</div>
         </ScrollListSkills>
-        Full Stack Software Developer
-        <div className="Header-Side">My name is Arthur Skok!</div>
+        <div className="Header-Side">Greetings, my name is Arthur Skok!</div>
       </div>
     </>
   );

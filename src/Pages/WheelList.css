@@ -15,7 +15,6 @@
   }
   
   .carousel-item {
-    border-radius: 5rem;
     height: var(--carousel-item-height); 
     width: 15rem; 
     box-sizing: border-box;
@@ -24,17 +23,16 @@
     justify-content: center;
     text-align: center; 
     background-color: black;
+    color:white;
   }
   
   .carousel-button {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
     border: none;
-    padding: 5px;
     cursor: pointer;
+    background-color: none;
   }
   
   .carousel-button.prev {
