@@ -1,13 +1,13 @@
-@font-face {
+/*@font-face {
     font-family: 'Empire';
     src: url('./Empire Regular.otf') format('opentype');
     font-stretch: expanded;
-}
+}*/
 
-/*@font-face {
+@font-face {
     font-family: 'Futura';
     src: url('./futura/Futura Book.ttf') format('truetype');
     font-style: normal;
     font-weight: normal;
     font-stretch: normal;
-}*/
+}

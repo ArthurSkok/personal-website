@@ -8,7 +8,7 @@ import "../Fonts/fonts.css";
 import ScrollListSkills from "./WheelList.js";
 import LogoNew from "../Assets/logonew.png";
 import { BsFiletypeCss } from "react-icons/bs";
-import background from "../Assets/background2.jpg";
+import background from "../Assets/aura.jpg";
 
 const Header = () => {
   const items = ["Item 1", "Item 2", "Item 3", "Item 4"];
@@ -26,7 +26,6 @@ const Header = () => {
   return (
     <>
       <div className="Header">
-        <img src={LogoNew} alt="Example" className="Header-Picture" />
         <ScrollListSkills>
           <div style={{ backgroundColor: "lightcoral" }}>
             React <img src={logo} className="App-logo" alt="logo" />
@@ -44,13 +43,18 @@ const Header = () => {
     </>
   );
 };
-/*<div style={{ height: "200vh", padding: "20px" }}>
-        <h1>Scroll Position: {scrollPosition}px</h1>
-      </div>
-    */
 function Home() {
   return (
-    <div className="Home" style={{ backgroundImage: `url(${background})` }}>
+    <div
+      className="Home"
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundsize: "cover",
+        backgroundRepeat: "no-repeat",
+        width: "100%",
+        height: "100vh",
+      }}
+    >
       <NavBar />
       <Header />
       <header className="header">

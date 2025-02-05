@@ -2,34 +2,44 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
+    
     padding: 0.25rem;
   }
   
   .navbar-logo {
     color: #fff;
     font-size: 1.25rem;
-    font-style: italic;
     margin-left: 1.5rem;
     font-style:bold;
-    justify-items: flex-start;
-    align-items: left;
     padding-left: 0.75rem;
     padding-right: 0.5rem;
     padding-bottom: 0.125rem;
-    border-radius: 0.5rem;
-    border-width: 0.125rem;
-    background-color: #333;
-    border-style: solid;
-    border-color: whitesmoke;
+    display:flex;
+    flex-direction: row;
+    gap: 1em;
     
   }
   .navbar-logo-pic {
-    width: 1.25rem;
-    height: 1.25rem;
-    position:relative;
-    top: 0.25rem;
-    right:0.5rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    position: relative;
+  }
+  .navbar-logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-transform: uppercase;
+    
+    
+  }
+  .navbar-logo-top-text {
+    font-size:1.2rem;
+    font-weight: bold;
+
+  }
+  .navbar-logo-bottom-text {
+    font-size: 0.5em;
+    
   }
   .navbar-links {
     list-style: none;

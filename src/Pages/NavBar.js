@@ -15,7 +15,12 @@ const NavBar = ({ fontFam }) => {
     <nav className="navbar">
       <div className="navbar-logo">
         <img src={LogoNew} alt="Example" className="navbar-logo-pic" />
-        Arthur Skok
+        <div className="navbar-logo-text">
+          <div className="navbar-logo-top-text">Arthur Skok</div>
+          <div className="navbar-logo-bottom-text ">
+            Full-Stack App Developer
+          </div>
+        </div>
       </div>
       <ul className="navbar-links">
         <li>
