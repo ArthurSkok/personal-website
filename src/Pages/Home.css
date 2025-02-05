@@ -16,3 +16,9 @@
     width:5rem;
     height:5rem;
   }
+  .Wheel-Icons {
+    font-size: 1rem;
+    color:white;
+    position:relative;
+    top: 0.1rem;
+  }

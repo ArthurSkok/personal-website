@@ -8,22 +8,14 @@ import "../Fonts/fonts.css";
 import ScrollListSkills from "./WheelList.js";
 import LogoNew from "../Assets/logonew.png";
 import { BsFiletypeCss } from "react-icons/bs";
-import { AiOutlinePython } from "react-icons/ai";
+import {
+  AiOutlinePython,
+  AiOutlineHtml5,
+  AiOutlineAmazon,
+} from "react-icons/ai";
 import background from "../Assets/slide.png";
 
 const Header = () => {
-  const items = ["Item 1", "Item 2", "Item 3", "Item 4"];
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const handleScroll = (event) => {
-    setScrollPosition((prevPosition) => prevPosition + event.deltaY);
-  };
-  useEffect(() => {
-    window.addEventListener("wheel", handleScroll);
-    return () => {
-      window.removeEventListener("wheel", handleScroll);
-    };
-  }, []);
-
   return (
     <>
       <div className="Header">
@@ -32,13 +24,17 @@ const Header = () => {
             React <img src={logo} className="App-logo" alt="logo" />
           </div>
           <div>
-            CSS <BsFiletypeCss />
+            CSS <BsFiletypeCss className="Wheel-Icons" />
           </div>
-          <div>HTML</div>
           <div>
-            Python <AiOutlinePython />
+            HTML <AiOutlineHtml5 className="Wheel-Icons" />
           </div>
-          <div>AWS</div>
+          <div>
+            Python <AiOutlinePython className="Wheel-Icons" />
+          </div>
+          <div>
+            AWS <AiOutlineAmazon className="Wheel-Icons" />
+          </div>
         </ScrollListSkills>
         <div className="Header-Side">
           Arthur Skok: NYC Based Application and Web Developer

@@ -2,13 +2,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
     padding: 0.25rem;
   }
   
   .navbar-logo {
     color: #fff;
-    font-size: 1.25rem;
     margin-left: 1.5rem;
     font-style:bold;
     padding-left: 0.75rem;
@@ -42,17 +40,20 @@
     
   }
   .navbar-links {
+    padding-inline-start:1rem;
     list-style: none;
     display: flex;
     gap: 3rem;
     border-style: solid;
     border-color: white;
     border-radius: 0.5rem;
+    margin-right:1rem;
+    padding-right: 1rem;
   }
   
   .navbar-links li {
     margin: 0.5rem;
-    margin-right: 1rem;
+    padding-right: 0rem;
   }
   
   .navbar-links a {
