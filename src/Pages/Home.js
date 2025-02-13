@@ -35,7 +35,7 @@ const Header = () => {
       setWelcome(
         hourVar > 18
           ? "Good evening!"
-          : hourVar < 16
+          : hourVar < 12
           ? "Good morning!"
           : "Good afternoon!"
       );
@@ -52,8 +52,9 @@ const Header = () => {
       <div className="Header">
         <div className="Header-Middle">
           <p>{welcomeMessage}</p>
-          <p>{localTime}</p>
-          Arthur Skok: NYC Based Application and Web Developer
+          <p>Your local time is: {localTime}</p>
+          <p>Welcome to the personal website for Arthur Skok:</p>
+          NYC Based Application and Web Developer
         </div>
         <ScrollListSkills>
           <div>
