@@ -16,9 +16,45 @@ import {
 import background from "../Assets/slide.png";
 
 const Header = () => {
+  const [timeSpentOnPage, setTimeSpentOnPage] = useState(0); // in milliseconds
+  const [localTime, setLocalTime] = useState("");
+  const [welcomeMessage, setWelcome] = useState(" ");
+  useEffect(() => {
+    const updateTime = () => {
+      const date = new Date();
+      const options = {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        timeZoneName: "short",
+      };
+      const formatter = new Intl.DateTimeFormat("en-US", options);
+      const formattedTime = formatter.format(new Date());
+      setLocalTime(formattedTime);
+      const hourVar = String(date.getHours()).padStart(2, "0");
+      setWelcome(
+        hourVar > 18
+          ? "Good evening!"
+          : hourVar < 16
+          ? "Good morning!"
+          : "Good afternoon!"
+      );
+    };
+
+    updateTime();
+
+    const intervalId = setInterval(updateTime, 1000); // Update time every second
+
+    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+  }, []);
   return (
     <>
       <div className="Header">
+        <div className="Header-Middle">
+          <p>{welcomeMessage}</p>
+          <p>{localTime}</p>
+          Arthur Skok: NYC Based Application and Web Developer
+        </div>
         <ScrollListSkills>
           <div>
             React <img src={logo} className="App-logo" alt="logo" />
@@ -36,9 +72,6 @@ const Header = () => {
             AWS <AiOutlineAmazon className="Wheel-Icons" />
           </div>
         </ScrollListSkills>
-        <div className="Header-Side">
-          Arthur Skok: NYC Based Application and Web Developer
-        </div>
       </div>
     </>
   );
@@ -57,12 +90,6 @@ function Home() {
     >
       <NavBar />
       <Header />
-      <header className="header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
       <Footer />
     </div>
   );
