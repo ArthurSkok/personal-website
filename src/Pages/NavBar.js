@@ -17,7 +17,7 @@ const NavBar = ({ fontFam }) => {
         <img src={LogoNew} alt="Example" className="navbar-logo-pic" />
         <div className="navbar-logo-text">
           <div className="navbar-logo-top-text">
-            Full-Stack App and Web Developer
+            Full-Stack Software Developer
           </div>
           <div className="navbar-logo-bottom-text "></div>
         </div>

@@ -7,14 +7,14 @@ import "./Home.css";
 import "../Fonts/fonts.css";
 import ScrollListSkills from "./WheelList.js";
 import LogoNew from "../Assets/logonew.png";
-import { BsFiletypeCss } from "react-icons/bs";
+import { BsFiletypeCss, BsArrowRightCircle } from "react-icons/bs";
 import {
   AiOutlinePython,
   AiOutlineHtml5,
   AiOutlineAmazon,
 } from "react-icons/ai";
 import background from "../Assets/slide.png";
-import bird from "../Assets/Crane.jpg";
+import bird from "../Assets/Bird.jpg";
 
 const Header = () => {
   const [timeSpentOnPage, setTimeSpentOnPage] = useState(0); // in milliseconds
@@ -53,14 +53,20 @@ const Header = () => {
       <div className="Header">
         <div className="Header-Middle">
           <div className="Welcome-Div">
-            <p className="Time-Var">
-              {welcomeMessage} Your local time is: {localTime}
-            </p>
-            <p className="Welcome-Var">Arthur Skok, NYC Based</p>
-            <p className="Time-Var">
-              Software Developer possessing experience with:
-            </p>
-
+            <p className="Time-Var">{welcomeMessage}</p>
+            <p>Your local time is: {localTime}</p>
+            <p className="Welcome-Var">Hello, my name is Arthur Skok</p>
+            <p className="Time-Var">I am a Software Developer based in NYC</p>
+          </div>
+          <div className="Middle-Div">
+            <img
+              src={bird}
+              alt="A crane standing in water"
+              className="Portrait"
+            ></img>
+          </div>
+          <div className="End-Div">
+            <p>My Current Skillset Includes:</p>
             <ScrollListSkills>
               <div>
                 React <img src={logo} className="App-logo" alt="logo" />
@@ -78,13 +84,10 @@ const Header = () => {
                 AWS <AiOutlineAmazon className="Wheel-Icons" />
               </div>
             </ScrollListSkills>
-          </div>
-          <div className="Middle-Div">
-            <img
-              src={bird}
-              alt="A crane standing in water"
-              className="Portrait"
-            ></img>
+            <p className="Time-Var">...and more!</p>
+            <p className="Time-Var">
+              You can see my Portfolio here <BsArrowRightCircle />
+            </p>
           </div>
         </div>
       </div>
