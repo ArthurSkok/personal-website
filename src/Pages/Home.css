@@ -10,7 +10,9 @@
   }
   .Header-Middle {
     color: white;
-    font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    gap:5rem;
   }
   .Header-Picture {
     width:5rem;
@@ -22,3 +24,17 @@
     position:relative;
     top: 0.1rem;
   }
+  .Welcome-Div {
+    width: 30rem;
+  }
+  .Welcome-Var {
+    font-size:2rem;
+  }
+  .Time-Var {
+    font-size: 1.25rem;
+  }
+  .Portrait {
+    width:20rem;
+    height:40rem;
+  }
+  

@@ -14,6 +14,7 @@ import {
   AiOutlineAmazon,
 } from "react-icons/ai";
 import background from "../Assets/slide.png";
+import bird from "../Assets/Crane.jpg";
 
 const Header = () => {
   const [timeSpentOnPage, setTimeSpentOnPage] = useState(0); // in milliseconds
@@ -51,28 +52,41 @@ const Header = () => {
     <>
       <div className="Header">
         <div className="Header-Middle">
-          <p>{welcomeMessage}</p>
-          <p>Your local time is: {localTime}</p>
-          <p>Welcome to the personal website for Arthur Skok:</p>
-          NYC Based Application and Web Developer
+          <div className="Welcome-Div">
+            <p className="Time-Var">
+              {welcomeMessage} Your local time is: {localTime}
+            </p>
+            <p className="Welcome-Var">Arthur Skok, NYC Based</p>
+            <p className="Time-Var">
+              Software Developer possessing experience with:
+            </p>
+
+            <ScrollListSkills>
+              <div>
+                React <img src={logo} className="App-logo" alt="logo" />
+              </div>
+              <div>
+                CSS <BsFiletypeCss className="Wheel-Icons" />
+              </div>
+              <div>
+                HTML <AiOutlineHtml5 className="Wheel-Icons" />
+              </div>
+              <div>
+                Python <AiOutlinePython className="Wheel-Icons" />
+              </div>
+              <div>
+                AWS <AiOutlineAmazon className="Wheel-Icons" />
+              </div>
+            </ScrollListSkills>
+          </div>
+          <div className="Middle-Div">
+            <img
+              src={bird}
+              alt="A crane standing in water"
+              className="Portrait"
+            ></img>
+          </div>
         </div>
-        <ScrollListSkills>
-          <div>
-            React <img src={logo} className="App-logo" alt="logo" />
-          </div>
-          <div>
-            CSS <BsFiletypeCss className="Wheel-Icons" />
-          </div>
-          <div>
-            HTML <AiOutlineHtml5 className="Wheel-Icons" />
-          </div>
-          <div>
-            Python <AiOutlinePython className="Wheel-Icons" />
-          </div>
-          <div>
-            AWS <AiOutlineAmazon className="Wheel-Icons" />
-          </div>
-        </ScrollListSkills>
       </div>
     </>
   );

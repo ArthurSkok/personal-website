@@ -5,7 +5,7 @@
     width: 15rem;
     height: var(--carousel-item-height);
     border-radius: 0.75rem;
-  
+    left:7.5rem;
   }
   
   .carousel-content {
