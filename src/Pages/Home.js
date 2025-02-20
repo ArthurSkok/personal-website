@@ -15,10 +15,13 @@ import {
 } from "react-icons/ai";
 import background from "../Assets/slide.png";
 import bird from "../Assets/Bird.jpg";
+import Selfie from "../Assets/Selfie.jpg";
+import moment from "moment-timezone";
 
 const Header = () => {
   const [timeSpentOnPage, setTimeSpentOnPage] = useState(0); // in milliseconds
   const [localTime, setLocalTime] = useState("");
+  const [easternTime, setEasternTime] = useState("");
   const [welcomeMessage, setWelcome] = useState(" ");
   useEffect(() => {
     const updateTime = () => {
@@ -31,7 +34,9 @@ const Header = () => {
       };
       const formatter = new Intl.DateTimeFormat("en-US", options);
       const formattedTime = formatter.format(new Date());
-      setLocalTime(formattedTime);
+      setLocalTime(formattedTime); // We're using this variable to determine the welcome message
+      const NYTime = moment(date.toISOString()).tz("America/New_York").toDate(); // Converting the local time from the previously called date object to eastern time to determine availability
+      setEasternTime(formatter.format(NYTime));
       const hourVar = String(date.getHours()).padStart(2, "0");
       setWelcome(
         hourVar > 18
@@ -51,22 +56,17 @@ const Header = () => {
   return (
     <>
       <div className="Header">
+        <p className="Welcome-Var">{welcomeMessage}</p>
+        <p className="Time-Var">Local time is: {localTime}</p>
+        <p className="My-Time">{easternTime}</p>
         <div className="Header-Middle">
           <div className="Welcome-Div">
-            <p className="Time-Var">{welcomeMessage}</p>
-            <p>Your local time is: {localTime}</p>
-            <p className="Welcome-Var">Hello, my name is Arthur Skok</p>
-            <p className="Time-Var">I am a Software Developer based in NYC</p>
-          </div>
-          <div className="Middle-Div">
-            <img
-              src={bird}
-              alt="A crane standing in water"
-              className="Portrait"
-            ></img>
-          </div>
-          <div className="End-Div">
-            <p>My Current Skillset Includes:</p>
+            <p className="Time-Var">Software Developer based in NYC</p>
+            <p className="Welcome-Var">
+              My name is<div className="Name"> Arthur Skok</div>
+            </p>
+
+            <p className="Time-Var">My Current Skillset Includes:</p>
             <ScrollListSkills>
               <div>
                 React <img src={logo} className="App-logo" alt="logo" />
@@ -84,11 +84,18 @@ const Header = () => {
                 AWS <AiOutlineAmazon className="Wheel-Icons" />
               </div>
             </ScrollListSkills>
-            <p className="Time-Var">...and more!</p>
             <p className="Time-Var">
               You can see my Portfolio here <BsArrowRightCircle />
             </p>
           </div>
+          <div className="Middle-Div">
+            <img
+              src={Selfie}
+              alt="A crane standing in water"
+              className="Portrait"
+            ></img>
+          </div>
+          <div className="End-Div"></div>
         </div>
       </div>
     </>
