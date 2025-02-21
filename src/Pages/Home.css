@@ -6,6 +6,7 @@
     justify-content: space-between;
     align-items: center;
     color:white;
+    padding:10rem;
   }
   .Header-Middle {
     display: flex;
@@ -38,6 +39,8 @@
   .Portrait {
     width:15rem;
     height:30rem;
+    border: 0.1rem solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   .End-Div{
     width: 30rem;

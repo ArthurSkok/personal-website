@@ -1,20 +1,36 @@
-/* Popup.css */
-.popup {
+
+.Popup {
     position: fixed;
     bottom: 1rem;
     right: 1rem;
-    width: 20rem;
+    width: 24rem;
     padding: 1rem;
     background-color: #fff;
     border: 0.1rem solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 10; /*not needed yet, only to place the popup on top of any pre-existing graphic*/
+    font-size: 1em;
+    text-align: center;
   }
   
-  .popup .close {
+  .Popup .Close {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
+    top: 0rem;
+    right: 0.25rem;
+    font-size: 1.25rem;
     cursor: pointer;
+  }
+  .Indicator {
+    font-size:2rem;
+    padding-left: 1rem;
+    margin-top: 1rem;
+    position: absolute;
+    bottom: 0rem;
+    right:0rem;
+  }
+  .Indicator-Offline {
+    color:red;
+  }
+  .Indicator-Online {
+    color:green;
   }

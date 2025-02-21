@@ -12,6 +12,9 @@ import {
   AiOutlinePython,
   AiOutlineHtml5,
   AiOutlineAmazon,
+  AiOutlineMoon,
+  AiOutlineSun,
+  AiOutlinePoweroff,
 } from "react-icons/ai";
 import background from "../Assets/slide.png";
 import bird from "../Assets/Bird.jpg";
@@ -21,14 +24,37 @@ import Popup from "./Popup";
 
 const Header = () => {
   const [timeSpentOnPage, setTimeSpentOnPage] = useState(0); // in milliseconds
-  const [localTime, setLocalTime] = useState("");
+  const [localTime, setLocalTime] = useState(""); // remove later when debugging is no longer necessary
   const [easternTime, setEasternTime] = useState("");
   const [welcomeMessage, setWelcome] = useState(" ");
   const [showPopup, setShowPopup] = useState(true);
-  const PopupText = `${welcomeMessage}`;
+  const [availabilityState, setAvailability] = useState(false);
+  const [availabilityIcon, setIcon] = useState(<AiOutlinePoweroff />);
+  const PopupText = (
+    <span>
+      {`${welcomeMessage} My local time is ${easternTime} and I am currently `}
+      {availabilityIcon}
+    </span>
+  );
   const handleClosePopup = () => {
     setShowPopup(false);
   };
+  useEffect(() => {
+    setIcon(
+      availabilityState ? (
+        <span>
+          online!
+          <AiOutlinePoweroff className="Indicator Indicator-Online" />
+        </span>
+      ) : (
+        <span>
+          offline.
+          <AiOutlinePoweroff className="Indicator Indicator-Offline" />
+        </span>
+      )
+    );
+  }, [availabilityState]);
+
   useEffect(() => {
     const updateTime = () => {
       const date = new Date();
@@ -38,19 +64,23 @@ const Header = () => {
         second: "2-digit",
         timeZoneName: "short",
       };
-      const formatter = new Intl.DateTimeFormat("en-US", options);
-      const formattedTime = formatter.format(new Date());
-      setLocalTime(formattedTime); // We're using this variable to determine the welcome message
+      const formatter = new Intl.DateTimeFormat("en-US", options); // using this for both eastern time and local time formats, do not delete
+      const formattedTime = formatter.format(new Date()); // We're using this variable to determine the welcome message, remove later when debugging is no longer necessary
+      setLocalTime(formattedTime); // remove later when debugging is no longer necessary
       const NYTime = moment(date.toISOString()).tz("America/New_York").toDate(); // Converting the local time from the previously called date object to eastern time to determine availability
       setEasternTime(formatter.format(NYTime));
+
       const hourVar = String(date.getHours()).padStart(2, "0");
+      const myHour = NYTime.getHours();
       setWelcome(
+        // Welcome var based off of the LOCAL time not EST, JS coerces hourVar here back into a number/int value
         hourVar > 18
           ? "Good evening!"
           : hourVar < 12
           ? "Good morning!"
           : "Good afternoon!"
       );
+      setAvailability(myHour > 20 ? false : myHour < 12 ? false : true);
     };
 
     updateTime();
@@ -62,9 +92,6 @@ const Header = () => {
   return (
     <>
       <div className="Header">
-        <p className="Welcome-Var">{welcomeMessage}</p>
-        <p className="Time-Var">Local time is: {localTime}</p>
-        <p className="My-Time">{easternTime}</p>
         <div className="Header-Middle">
           <div className="Welcome-Div">
             <p className="Time-Var">Software Developer based in NYC</p>
@@ -101,7 +128,6 @@ const Header = () => {
               className="Portrait"
             ></img>
           </div>
-          <div className="End-Div"></div>
         </div>
       </div>
       <Popup show={showPopup} onClose={handleClosePopup} input={PopupText} />

@@ -7,8 +7,8 @@ const Popup = ({ show, onClose, input }) => {
   }
 
   return (
-    <div className="popup">
-      <span className="close" onClick={onClose}>
+    <div className="Popup">
+      <span className="Close" onClick={onClose}>
         &times;
       </span>
       <p>{input}</p>
