@@ -17,12 +17,18 @@ import background from "../Assets/slide.png";
 import bird from "../Assets/Bird.jpg";
 import Selfie from "../Assets/Selfie.jpg";
 import moment from "moment-timezone";
+import Popup from "./Popup";
 
 const Header = () => {
   const [timeSpentOnPage, setTimeSpentOnPage] = useState(0); // in milliseconds
   const [localTime, setLocalTime] = useState("");
   const [easternTime, setEasternTime] = useState("");
   const [welcomeMessage, setWelcome] = useState(" ");
+  const [showPopup, setShowPopup] = useState(true);
+  const PopupText = `${welcomeMessage}`;
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
   useEffect(() => {
     const updateTime = () => {
       const date = new Date();
@@ -98,6 +104,7 @@ const Header = () => {
           <div className="End-Div"></div>
         </div>
       </div>
+      <Popup show={showPopup} onClose={handleClosePopup} input={PopupText} />
     </>
   );
 };
