@@ -2,36 +2,57 @@ const express = require("express");
 const http = require("http");
 const cors = require("cors");
 const socketIo = require("socket.io");
+const chalk = require("chalk"); // makes the logs look better
+
+const PORT = process.env.PORT || 3001;
 
 const app = express();
-app.use(cors());
+app.use(cors()); // Allow cross-origin requests, had to include because otherwise the server kept producing "needs upgrade" errors
 
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: "http://localhost:3000", // Allow requests from this origin
+    origin: "http://localhost:3000",
     methods: ["GET", "POST"],
   },
 });
 
-io.on("connection", (socket) => {
-  console.log("Client connected");
+// Utility function for logging messages with timestamps
+const logWithTimestamp = (message, type = "info") => {
+  const timestamp = new Date().toISOString();
+  const logTypes = {
+    info: chalk.blue,
+    warn: chalk.yellow,
+    error: chalk.red,
+  };
+  console.log(logTypes[type](`[${timestamp}] ${message}`));
+};
 
+// Handle WebSocket connections
+io.on("connection", (socket) => {
+  logWithTimestamp("New client connected", "info");
+
+  // Handle incoming messages and broadcast them
   socket.on("message", (message) => {
-    console.log(`Received message: ${message}`);
-    // Broadcast the message to all connected clients
+    logWithTimestamp(`📩 Message received: ${message}`, "info");
     socket.broadcast.emit("message", message);
   });
 
+  // Handle disconnections
   socket.on("disconnect", () => {
-    console.log("Client disconnected");
+    logWithTimestamp("Client disconnected", "warn");
   });
 
+  // Handle errors more gracefully
   socket.on("error", (error) => {
-    console.error(`WebSocket error: ${error}`);
+    logWithTimestamp(`⚠️ WebSocket error: ${error.message || error}`, "error");
   });
 });
 
-server.listen(3001, () => {
-  console.log("WebSocket server is running on ws://localhost:3001");
+// Start the server
+server.listen(PORT, () => {
+  logWithTimestamp(
+    `WebSocket server running on ws://localhost:${PORT}`,
+    "info"
+  );
 });
