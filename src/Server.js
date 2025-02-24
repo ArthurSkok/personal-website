@@ -1,6 +1,3 @@
-import React from "react";
-import "./Popup.css";
-
 const WebSocket = require("ws");
 const wss = new WebSocket.Server({ port: 8080 });
 
@@ -21,20 +18,3 @@ wss.on("connection", (ws) => {
     console.log("Client disconnected");
   });
 });
-
-const Popup = ({ show, onClose, input }) => {
-  if (!show) {
-    return null;
-  }
-
-  return (
-    <div className="Popup">
-      <span className="Close" onClick={onClose}>
-        &times;
-      </span>
-      <p>{input}</p>
-    </div>
-  );
-};
-
-export default Popup;
