@@ -24,31 +24,31 @@ const NavBar = ({ fontFam }) => {
       </div>
       <ul className="navbar-links">
         <li>
-          <a href="#home">
+          <a href="/">
             <BsHouseDoor className="navbar-icon" />
             Home
           </a>
         </li>
         <li>
-          <a href="#about">
+          <a href="/about">
             <BsPencil className="navbar-icon" />
             About
           </a>
         </li>
         <li>
-          <a href="#portfolio">
+          <a href="/portfolio">
             <BsCollection className="navbar-icon" />
             Portfolio
           </a>
         </li>
         <li>
-          <a href="#prototypes">
+          <a href="/prototypes">
             <BsLightning className="navbar-icon" />
             MiniApps
           </a>
         </li>
         <li>
-          <a href="#contact">
+          <a href="/contact">
             <BsSend className="navbar-icon" />
             Contact
           </a>

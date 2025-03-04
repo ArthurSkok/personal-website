@@ -124,7 +124,7 @@ const Header = () => {
           <div className="Middle-Div">
             <img
               src={Selfie}
-              alt="A crane standing in water"
+              alt="A man with his dog"
               className="Portrait"
             ></img>
           </div>
