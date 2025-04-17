@@ -9,8 +9,10 @@ import {
 } from "react-icons/bs";
 import "../Fonts/fonts.css";
 import LogoNew from "../Assets/logonew.png";
+import { Link, useNavigate } from "react-router-dom";
 
-const NavBar = ({ fontFam }) => {
+const NavBar = () => {
+  const navigate = useNavigate();
   return (
     <nav className="navbar">
       <div className="navbar-logo">
@@ -24,16 +26,16 @@ const NavBar = ({ fontFam }) => {
       </div>
       <ul className="navbar-links">
         <li>
-          <a href="/">
+          <Link to="/">
             <BsHouseDoor className="navbar-icon" />
             Home
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/about">
+          <Link to="/about">
             <BsPencil className="navbar-icon" />
             About
-          </a>
+          </Link>
         </li>
         <li>
           <a href="/portfolio">
