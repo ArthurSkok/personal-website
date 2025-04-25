@@ -21,5 +21,3 @@ function App() {
 }
 
 export default App;
-//        <Route path="/products" element={<Products />} />
-//        <Route path="/about" element={<About />} />
